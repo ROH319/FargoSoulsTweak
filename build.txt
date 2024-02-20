@@ -1,0 +1,7 @@
+displayName = FargoSouls Anomalies 法狗平衡重制
+author = ROH
+version = 0.0.1
+modReferences = FargowiltasSouls
+includeSource = true
+dllReferences = MMHOOK_FargowiltasSouls
+sortAfter = FargowiltasSouls

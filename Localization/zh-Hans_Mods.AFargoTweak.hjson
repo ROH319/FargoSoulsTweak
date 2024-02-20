@@ -1,0 +1,282 @@
+Configs: {
+	AFTConfig: {
+		DisplayName: CFT配置
+
+		Headers: {
+			ReviveOld: 旧物复生
+			BalanceChange: Balance Change Header
+			BalanceChangeAcc: 平衡更改 - 饰品
+			BalanceChangeWeapon: 平衡更改 - 武器
+			GlobalTest: 全局测试
+		}
+
+		SansGolem: {
+			Label: Sans Golem
+			Tooltip: ""
+		}
+
+		ComputationOrbRegenCD: {
+			Label: "[i:FargowiltasSouls/ComputationOrb]{$Mods.FargowiltasSouls.Items.ComputationOrb.DisplayName}回魔CD"
+			Tooltip: ""
+		}
+
+		MagicSoulManaCostRedu: {
+			Label: "[i:FargowiltasSouls/ArchWizardsSoul]{$Mods.FargowiltasSouls.Items.ArchWizardsSoul.DisplayName}魔力减耗%"
+			Tooltip: ""
+		}
+
+		UniversalSoulManaCoseRedu: {
+			Label: "[i:FargowiltasSouls/UniverseSoul]{$Mods.FargowiltasSouls.Items.UniverseSoul.DisplayName}魔力减耗%"
+			Tooltip: ""
+		}
+
+		DragonBreath2FireBallDmgMul: {
+			Label: "[i:FargowiltasSouls/DragonBreath2]{$Mods.FargowiltasSouls.Items.DragonBreath2.DisplayName}火球伤害系数%"
+			Tooltip: ""
+		}
+
+		PrimeDeathrayStaticImmunity: {
+			Label: "[i:FargowiltasSouls/RefractorBlaster2]{$Mods.FargowiltasSouls.Items.RefractorBlaster2.DisplayName}烈焰死亡射线使用静态无敌帧"
+			Tooltip: ""
+		}
+
+		PrimeDeathrayImmunityCD: {
+			Label: "[i:FargowiltasSouls/RefractorBlaster2]{$Mods.FargowiltasSouls.Items.RefractorBlaster2.DisplayName}烈焰死亡射线静态无敌帧时长"
+			Tooltip: ""
+		}
+
+		ComputationOrbManaCost: {
+			Label: "[i:FargowiltasSouls/ComputationOrb]{$Mods.FargowiltasSouls.Items.ComputationOrb.DisplayName}耗魔量"
+			Tooltip: ""
+		}
+
+		ComputationOrbCritDmg: {
+			Label: "[i:FargowiltasSouls/ComputationOrb]{$Mods.FargowiltasSouls.Items.ComputationOrb.DisplayName}暴击伤害增加%"
+			Tooltip: ""
+		}
+
+		SummonSoulExtraTurrets: {
+			Label: "[i:FargowiltasSouls/ConjuristsSoul]{$Mods.FargowiltasSouls.Items.ConjuristsSoul.DisplayName}额外炮台栏"
+			Tooltip: ""
+		}
+
+		UniversalSoulExtraTurrets: {
+			Label: "[i:FargowiltasSouls/UniverseSoul]{$Mods.FargowiltasSouls.Items.UniverseSoul.DisplayName}额外炮台栏"
+			Tooltip: ""
+		}
+
+		StyxCrownExtraTurrets: {
+			Label: "[i:FargowiltasSouls/StyxCrown]{$Mods.FargowiltasSouls.Items.StyxCrown.DisplayName}额外炮台栏"
+			Tooltip: ""
+		}
+
+		EridanusHatExtraTurrets: {
+			Label: "[i:FargowiltasSouls/EridanusHat]{$Mods.FargowiltasSouls.Items.EridanusHat.DisplayName}额外炮台栏"
+			Tooltip: ""
+		}
+
+		GlobalImmunityType: {
+			Label: 全局弹幕无敌帧类型
+			Tooltip: ""
+		}
+
+		GlobalImmunityCD: {
+			Label: 全局弹幕无敌帧时长
+			Tooltip: ""
+		}
+
+		GlobalIgnoreImmunity: {
+			Label: 是否强制设置无视无敌帧
+			Tooltip: ""
+		}
+
+		DeviMusicType: {
+			Label: 戴薇安Boss战BGM
+			Tooltip: ""
+		}
+	}
+
+	NPCImmunityType: {
+		Tooltip: 全局弹幕无敌帧类型
+		None.Label: 不变
+		Local.Label: 局部
+		IDStatic.Label: 静态
+	}
+
+	ForcesImmunity: {
+		Tooltip: 将noInteractionWithNPCImmunityFrames强制设为true或false
+		None.Label: 不变
+		Disable.Label: False
+		Enable.Label: True
+	}
+
+	DeviMusic: {
+		Tooltip: 复活吧，我的爱人！
+		Default.Label: 默认
+		LexusCyanixs.Label: Lexus Cyanixs
+		DanceOfDeviance.Label: Dance Of Deviance
+	}
+
+	AbomMusic: {
+		Tooltip: ""
+		Default.Label: 默认
+		Stigma.Label: Stigma
+	}
+
+	PreferenceConfig: {
+		DisplayName: 个人设置
+		Headers.ReviveOld: 旧物复生
+
+		SansGolem: {
+			Label: Sans Golem
+			// Tooltip: ""
+		}
+
+		DeviMusicType: {
+			Label: 德薇安Boss战BGM
+			// Tooltip: ""
+		}
+
+		AbomMusicType: {
+			Label: 憎恶Boss战BGM
+			// Tooltip: ""
+		}
+
+		ProjName: {
+			Label: 显示弹幕名称
+			// Tooltip: ""
+		}
+	}
+
+	ProjectileOverriderConfig: {
+		DisplayName: 弹幕更改
+
+		ProjChanges: {
+			Label: 弹幕更改
+			Tooltip: ""
+		}
+
+		Presets: {
+			Label: 预设
+			Tooltip: ""
+		}
+	}
+
+	ConfigExtra.DefaultPreset: 默认
+
+	ProjOverrider: {
+		// Tooltip: ""
+
+		proj: {
+			Label: 弹幕
+			// Tooltip: ""
+		}
+
+		OnSpawnDamageMult: {
+			Label: 伤害系数
+			// Tooltip: ""
+		}
+
+		ProjImmuneType: {
+			Label: 无敌帧类型
+			// Tooltip: ""
+		}
+
+		ImmunityCD: {
+			Label: 无敌帧时长
+			// Tooltip: ""
+		}
+
+		Enabled: {
+			Label: 启用该弹幕更改
+			// Tooltip: ""
+		}
+	}
+
+	ItemOverriderConfig.DisplayName: Item Overrider Config
+
+	ProjNameDisplayer: {
+		// Tooltip: ""
+
+		Enabled: {
+			Label: 启用
+			// Tooltip: ""
+		}
+
+		OffsetX: {
+			// Label: Offset X
+			// Tooltip: ""
+		}
+
+		OffsetY: {
+			// Label: Offset Y
+			// Tooltip: ""
+		}
+
+		Offset: {
+			Label: 文本绘制偏移
+			// Tooltip: ""
+		}
+
+		TextColorR: {
+			// Label: Text Color R
+			// Tooltip: ""
+		}
+
+		TextColorG: {
+			// Label: Text Color G
+			// Tooltip: ""
+		}
+
+		TextColorB: {
+			// Label: Text Color B
+			// Tooltip: ""
+		}
+
+		TextColor: {
+			Label: 文本颜色
+			// Tooltip: ""
+		}
+
+		BorderColorR: {
+			// Label: Border Color R
+			// Tooltip: ""
+		}
+
+		BorderColorG: {
+			// Label: Border Color G
+			// Tooltip: ""
+		}
+
+		BorderColorB: {
+			// Label: Border Color B
+			// Tooltip: ""
+		}
+
+		BorderColor: {
+			Label: 边框颜色
+			// Tooltip: ""
+		}
+	}
+
+	ProjOverPreset: {
+		// Tooltip: ""
+
+		PresetName: {
+			Label: 预设名称
+			// Tooltip: ""
+		}
+
+		ProjChanges: {
+			Label: 弹幕更改
+			// Tooltip: ""
+		}
+
+		Enabled: {
+			Label: 启用该预设
+			// Tooltip: ""
+		}
+	}
+
+	
+}

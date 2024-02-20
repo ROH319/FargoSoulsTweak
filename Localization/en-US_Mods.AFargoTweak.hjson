@@ -1,0 +1,280 @@
+Configs: {
+	AFTConfig: {
+		DisplayName: AFT Config
+
+		Headers: {
+			ReviveOld: Fargo Reviver
+			BalanceChange: Balance Change Header
+			BalanceChangeAcc: Balance Change - Acc
+			BalanceChangeWeapon: Balance Change - Weapon
+			GlobalTest: Global Test Header
+		}
+
+		SansGolem: {
+			Label: Sans Golem
+			Tooltip: ""
+		}
+
+		ComputationOrbRegenCD: {
+			Label: "[i:FargowiltasSouls/ComputationOrb]{$Mods.FargowiltasSouls.Items.ComputationOrb.DisplayName} ManaRegenCooldown"
+			Tooltip: ""
+		}
+
+		MagicSoulManaCostRedu: {
+			Label: "[i:FargowiltasSouls/ArchWizardsSoul]{$Mods.FargowiltasSouls.Items.ArchWizardsSoul.DisplayName} ManaCostRedution%"
+			Tooltip: ""
+		}
+
+		UniversalSoulManaCoseRedu: {
+			Label: "[i:FargowiltasSouls/UniverseSoul]{$Mods.FargowiltasSouls.Items.UniverseSoul.DisplayName} ManaCostRedution%"
+			Tooltip: ""
+		}
+
+		DragonBreath2FireBallDmgMul: {
+			Label: "[i:FargowiltasSouls/DragonBreath2]{$Mods.FargowiltasSouls.Items.DragonBreath2.DisplayName} FireBall Damage Multiplication%"
+			Tooltip: ""
+		}
+
+		PrimeDeathrayStaticImmunity: {
+			Label: "[i:FargowiltasSouls/RefractorBlaster2]{$Mods.FargowiltasSouls.Items.RefractorBlaster2.DisplayName} PrimeDeathRay Use IDStatic Immunity"
+			Tooltip: ""
+		}
+
+		PrimeDeathrayImmunityCD: {
+			Label: "[i:FargowiltasSouls/RefractorBlaster2]{$Mods.FargowiltasSouls.Items.RefractorBlaster2.DisplayName} PrimeDeathRay IDStatic Immunity Cooldown"
+			Tooltip: ""
+		}
+
+		ComputationOrbManaCost: {
+			Label: Computation Orb Mana Cost
+			Tooltip: ""
+		}
+
+		ComputationOrbCritDmg: {
+			Label: Computation Orb Crit Dmg
+			Tooltip: ""
+		}
+
+		SummonSoulExtraTurrets: {
+			Label: Summon Soul Extra Turrets
+			Tooltip: ""
+		}
+
+		UniversalSoulExtraTurrets: {
+			Label: Universal Soul Extra Turrets
+			Tooltip: ""
+		}
+
+		StyxCrownExtraTurrets: {
+			Label: Styx Crown Extra Turrets
+			Tooltip: ""
+		}
+
+		EridanusHatExtraTurrets: {
+			Label: Eridanus Hat Extra Turrets
+			Tooltip: ""
+		}
+
+		GlobalImmunityType: {
+			Label: Global Immunity Type
+			Tooltip: ""
+		}
+
+		GlobalImmunityCD: {
+			Label: Global Immunity C D
+			Tooltip: ""
+		}
+
+		GlobalIgnoreImmunity: {
+			Label: Global Ignore Immunity
+			Tooltip: ""
+		}
+
+		DeviMusicType: {
+			Label: Devi Music Type
+			Tooltip: ""
+		}
+	}
+
+	NPCImmunityType: {
+		Tooltip: ""
+		None.Label: None
+		Local.Label: Local
+		IDStatic.Label: I D Static
+	}
+
+	ForcesImmunity: {
+		Tooltip: ""
+		None.Label: None
+		Disable.Label: Disable
+		Enable.Label: Enable
+	}
+
+	DeviMusic: {
+		Tooltip: ""
+		Default.Label: Default
+		LexusCyanixs.Label: Lexus Cyanixs
+		DanceOfDeviance.Label: Dance Of Deviance
+	}
+
+	PreferenceConfig: {
+		DisplayName: Preference Config
+		Headers.ReviveOld: Revive Old Header
+
+		SansGolem: {
+			Label: Sans Golem
+			Tooltip: ""
+		}
+
+		DeviMusicType: {
+			Label: Devi Music Type
+			Tooltip: ""
+		}
+
+		AbomMusicType: {
+			Label: ����BossսBGM
+			Tooltip: ""
+		}
+
+		ProjName: {
+			Label: Proj Name
+			Tooltip: ""
+		}
+	}
+
+	ProjectileOverriderConfig: {
+		DisplayName: Projectile Overrider Config
+
+		ProjChanges: {
+			Label: Proj Changes
+			Tooltip: ""
+		}
+
+		Presets: {
+			Label: Presets
+			Tooltip: ""
+		}
+	}
+
+	ConfigExtra.DefaultPreset: Default
+
+	ProjOverrider: {
+		Tooltip: ""
+
+		proj: {
+			Label: proj
+			Tooltip: ""
+		}
+
+		OnSpawnDamageMult: {
+			Label: On Spawn Damage Mult
+			Tooltip: ""
+		}
+
+		ProjImmuneType: {
+			Label: Proj Immune Type
+			Tooltip: ""
+		}
+
+		ImmunityCD: {
+			Label: Immunity C D
+			Tooltip: ""
+		}
+
+		Enabled: {
+			Label: Enabled
+			Tooltip: ""
+		}
+	}
+
+	ItemOverriderConfig.DisplayName: Item Overrider Config
+
+	ProjNameDisplayer: {
+		Tooltip: ""
+
+		Enabled: {
+			Label: Enabled
+			Tooltip: ""
+		}
+
+		OffsetX: {
+			Label: Offset X
+			Tooltip: ""
+		}
+
+		OffsetY: {
+			Label: Offset Y
+			Tooltip: ""
+		}
+
+		Offset: {
+			Label: Offset
+			Tooltip: ""
+		}
+
+		TextColorR: {
+			Label: Text Color R
+			Tooltip: ""
+		}
+
+		TextColorG: {
+			Label: Text Color G
+			Tooltip: ""
+		}
+
+		TextColorB: {
+			Label: Text Color B
+			Tooltip: ""
+		}
+
+		TextColor: {
+			Label: Text Color
+			Tooltip: ""
+		}
+
+		BorderColorR: {
+			Label: Border Color R
+			Tooltip: ""
+		}
+
+		BorderColorG: {
+			Label: Border Color G
+			Tooltip: ""
+		}
+
+		BorderColorB: {
+			Label: Border Color B
+			Tooltip: ""
+		}
+
+		BorderColor: {
+			Label: Border Color
+			Tooltip: ""
+		}
+	}
+
+	ProjOverPreset: {
+		Tooltip: ""
+
+		PresetName: {
+			Label: Preset Name
+			Tooltip: ""
+		}
+
+		ProjChanges: {
+			Label: Proj Changes
+			Tooltip: ""
+		}
+
+		Enabled: {
+			Label: Enabled
+			Tooltip: ""
+		}
+	}
+
+	AbomMusic: {
+		Tooltip: ""
+		Default.Label: Default
+		Stigma.Label: Stigma
+	}
+}

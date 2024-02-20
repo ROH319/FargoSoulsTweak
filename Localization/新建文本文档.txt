@@ -1,0 +1,47 @@
+Configs: {
+	AFTConfig: {
+		DisplayName: AFT Config
+
+		Headers: {
+			ReviveOld: 旧物复生
+			BalanceChange: 平衡更改
+			BalanceChangeAcc: 平衡更改 - 饰品
+			BalanceChangeWeapon: 平衡更改 - 武器
+		}
+
+		SansGolem: {
+			Label: Sans Golem
+			Tooltip: ""
+		}
+
+		ComputationOrbRegenCD: {
+			Label: [i:FargoSouls/ComputationOrb]演算宝珠回魔CD
+			Tooltip: ""
+		}
+
+		MagicSoulManaCostRedu: {
+			Label: [i:FargoSouls/ArchWizardsSoul]巫师之魂魔力减耗
+			// Tooltip: ""
+		}
+
+		UniversalSoulManaCoseRedu: {
+			Label: [i:FargoSouls/UniversalSoul]寰宇之魂魔力减耗
+			// Tooltip: ""
+		}
+
+		DragonBreath2FireBallDmgMul: {
+			Label: [i:FargoSouls/DragonBreath2]龙之终焉火球伤害系数
+			// Tooltip: ""
+		}
+
+		PrimeDeathrayStaticImmunity: {
+			Label: [i:FargoSouls/RefractorBlaster2]烈焰死亡射线使用静态无敌帧
+			// Tooltip: ""
+		}
+
+		PrimeDeathrayImmunityCD: {
+			Label: [i:FargoSouls/RefractorBlaster2]烈焰死亡射线静态无敌帧冷却
+			// Tooltip: ""
+		}
+	}
+}
