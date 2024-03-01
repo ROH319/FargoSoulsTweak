@@ -3,7 +3,6 @@ using FargowiltasSouls;
 using FargowiltasSouls.Content.Patreon.Volknet;
 using FargowiltasSouls.Content.Patreon.Volknet.Projectiles;
 using FargowiltasSouls.Content.Projectiles.BossWeapons;
-using FargowiltasSouls.Content.Projectiles.Minions;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -23,33 +22,35 @@ namespace AFargoTweak
         public override void SetDefaults(Projectile entity)
         {
             base.SetDefaults(entity);
-
-        }
-        public override void ModifyHitNPC(Projectile projectile, NPC target, ref NPC.HitModifiers modifiers)
-        {
-            base.ModifyHitNPC(projectile, target, ref modifiers);
-            //if (FargoChangesLoader.ProjectileChanges != null)
-            //{
-            //    var list = FargoChangesLoader.ProjectileChanges.FindAll(change => change.Type == projectile.type);
-            //    for(int i = 0; i < list.Count; i++)
-            //    {
-            //        list[i].ApplyChanges_ModifyHit(projectile, ref modifiers);
-            //    }
-            //}
+            if(AFargoTweak.ConfigInstance.GlobalImmunityType == AFTUtils.NPCImmunityType.Local)
+            {
+                entity.usesLocalNPCImmunity = true;
+                entity.localNPCHitCooldown = AFargoTweak.ConfigInstance.GlobalImmunityCD;
+            }
+            else if(AFargoTweak.ConfigInstance.GlobalImmunityType == AFTUtils.NPCImmunityType.IDStatic)
+            {
+                entity.usesIDStaticNPCImmunity = true;
+                entity.idStaticNPCHitCooldown = AFargoTweak.ConfigInstance.GlobalImmunityCD;
+            }
+            if(AFargoTweak.ConfigInstance.GlobalIgnoreImmunity == AFTUtils.ForcesImmunity.Enable)
+            {
+                entity.FargoSouls().noInteractionWithNPCImmunityFrames = true;
+            }
+            else if (AFargoTweak.ConfigInstance.GlobalIgnoreImmunity == AFTUtils.ForcesImmunity.Disable)
+            {
+                entity.FargoSouls().noInteractionWithNPCImmunityFrames = false;
+            }
         }
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
-            if(FargoChangesLoader.ProjectileChanges != null)
+            if(FargoChangesLoader.ProjectileChanges != null && FargoChangesLoader.ProjectileChanges.ContainsKey(projectile.type))
             {
-                FargoChangesLoader.ProjectileChanges.FindAll(change => change.Type == projectile.type).ForEach((change) =>
-                {
-                    change.ApplyChanges_OnSpawn(projectile);
-                });
+                FargoChangesLoader.ProjectileChanges[projectile.type].ApplyChanges_OnSpawn(projectile);
             }
-            //if(projectile.type == ModContent.ProjectileType<DragonFireball>())
-            //{
-            //    projectile.damage = (int)(projectile.damage * AFargoTweak.ConfigInstance.DragonBreath2FireBallDmgMul / 100f);
-            //}
+            if(projectile.type == ModContent.ProjectileType<DragonFireball>())
+            {
+                projectile.damage = (int)(projectile.damage * AFargoTweak.ConfigInstance.DragonBreath2FireBallDmgMul / 100f);
+            }
             if(source is EntitySource_ItemUse)
             {
                 EntitySource_ItemUse parentSource = source as EntitySource_ItemUse;
@@ -58,15 +59,6 @@ namespace AFargoTweak
                     projectile.damage = (int)(projectile.damage * 1.75f / 1.6f);
                 }
             }
-            if(source is EntitySource_Parent)
-            {
-                EntitySource_Parent parentSource = source as EntitySource_Parent;
-                if(parentSource.Entity is Projectile p && p.type == ModContent.ProjectileType<DestroyerBody2>())
-                {
-                    projectile.penetrate = 1;
-                }
-            }
-
             base.OnSpawn(projectile, source);
         }
 

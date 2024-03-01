@@ -1,24 +1,22 @@
 Configs: {
-	AccConfig: {
-		DisplayName: 饰品更改
+	AFTConfig: {
+		DisplayName: CFT配置
+
+		Headers: {
+			ReviveOld: 旧物复生
+			BalanceChange: Balance Change Header
+			BalanceChangeAcc: 平衡更改 - 饰品
+			BalanceChangeWeapon: 平衡更改 - 武器
+			GlobalTest: 全局测试
+		}
+
+		SansGolem: {
+			Label: Sans Golem
+			Tooltip: ""
+		}
 
 		ComputationOrbRegenCD: {
 			Label: "[i:FargowiltasSouls/ComputationOrb]{$Mods.FargowiltasSouls.Items.ComputationOrb.DisplayName}回魔CD"
-			Tooltip: ""
-		}
-
-		ComputationOrbManaCost: {
-			Label: "[i:FargowiltasSouls/ComputationOrb]{$Mods.FargowiltasSouls.Items.ComputationOrb.DisplayName}耗魔量"
-			Tooltip: ""
-		}
-
-		ComputationOrbCritDmg: {
-			Label: "[i:FargowiltasSouls/ComputationOrb]{$Mods.FargowiltasSouls.Items.ComputationOrb.DisplayName}暴击伤害增加%"
-			Tooltip: ""
-		}
-
-		ExtraWizardSlot: {
-			Label: "{$Mods.FargowiltasSouls.Items.WizardEnchant.DisplayName}额外强化魔石个数"
 			Tooltip: ""
 		}
 
@@ -29,6 +27,31 @@ Configs: {
 
 		UniversalSoulManaCoseRedu: {
 			Label: "[i:FargowiltasSouls/UniverseSoul]{$Mods.FargowiltasSouls.Items.UniverseSoul.DisplayName}魔力减耗%"
+			Tooltip: ""
+		}
+
+		DragonBreath2FireBallDmgMul: {
+			Label: "[i:FargowiltasSouls/DragonBreath2]{$Mods.FargowiltasSouls.Items.DragonBreath2.DisplayName}火球伤害系数%"
+			Tooltip: ""
+		}
+
+		PrimeDeathrayStaticImmunity: {
+			Label: "[i:FargowiltasSouls/RefractorBlaster2]{$Mods.FargowiltasSouls.Items.RefractorBlaster2.DisplayName}烈焰死亡射线使用静态无敌帧"
+			Tooltip: ""
+		}
+
+		PrimeDeathrayImmunityCD: {
+			Label: "[i:FargowiltasSouls/RefractorBlaster2]{$Mods.FargowiltasSouls.Items.RefractorBlaster2.DisplayName}烈焰死亡射线静态无敌帧时长"
+			Tooltip: ""
+		}
+
+		ComputationOrbManaCost: {
+			Label: "[i:FargowiltasSouls/ComputationOrb]{$Mods.FargowiltasSouls.Items.ComputationOrb.DisplayName}耗魔量"
+			Tooltip: ""
+		}
+
+		ComputationOrbCritDmg: {
+			Label: "[i:FargowiltasSouls/ComputationOrb]{$Mods.FargowiltasSouls.Items.ComputationOrb.DisplayName}暴击伤害增加%"
 			Tooltip: ""
 		}
 
@@ -51,184 +74,6 @@ Configs: {
 			Label: "[i:FargowiltasSouls/EridanusHat]{$Mods.FargowiltasSouls.Items.EridanusHat.DisplayName}额外炮台栏"
 			Tooltip: ""
 		}
-	}
-
-	BossConfig: {
-		DisplayName: Boss更改
-		Headers.Mutant: 突变体
-
-		MutantSetting: {
-			Label: 突变体更改
-			Tooltip: ""
-		}
-	}
-
-	MutantConfig: {
-		Tooltip: ""
-
-		MasoCanRandom: {
-			Label: 允许受虐使用随机招式
-			Tooltip: ""
-		}
-
-		LowLifeCanRandom: {
-			Label: 血量越低越可能使用随机招式
-			Tooltip: ""
-		}
-
-		ForceRandom: {
-			Label: 强制使用随机招式
-			Tooltip: ""
-		}
-
-		AllowRecentAttack: {
-			Label: 允许使用最近几次攻击内的招式
-			Tooltip: ""
-		}
-
-		SkipP1Required: {
-			Label: 跳过一阶段所需进入二阶段次数
-			Tooltip: ""
-		}
-
-		MasoCanSkip: {
-			Label: 允许受虐模式跳过一阶段
-			Tooltip: ""
-		}
-
-		MutantEyeCompressFactor: {
-			Label: 深蓝冲刺幻影眼集中释放倍率
-			Tooltip: 为8时每帧释放
-		}
-	}
-
-	ItemOverriderConfig: {
-		DisplayName: 物品更改
-
-		Presets: {
-			Label: 预设
-			Tooltip: ""
-		}
-	}
-
-	ItemOverrider: {
-		Tooltip: ""
-
-		item: {
-			Label: 物品
-			Tooltip: ""
-		}
-
-		Enabled: {
-			Label: 启用该物品更改
-			Tooltip: ""
-		}
-
-		Damage: {
-			Label: 伤害
-			Tooltip: 该值小于等于0时不生效
-		}
-
-		UseTime: {
-			Label: 使用时间
-			Tooltip: 该值小于等于0时不生效
-		}
-
-		UseAnimation: {
-			Label: 使用动画时间
-			Tooltip: 该值小于等于0时不生效
-		}
-	}
-
-	PreferenceConfig: {
-		DisplayName: 个人设置
-		Headers.ReviveOld: 旧物复生
-
-		SansGolem: {
-			Label: Sans Golem
-			Tooltip: ""
-		}
-
-		DeviMusicType: {
-			Label: 德薇安Boss战BGM
-			Tooltip: ""
-		}
-
-		AbomMusicType: {
-			Label: 憎恶Boss战BGM
-			Tooltip: ""
-		}
-
-		MutantMusicTypeP1: {
-			Label: 突变体一阶段BGM
-			Tooltip: ""
-		}
-
-		MutantMusicTypeP2: {
-			Label: 突变体二阶段BGM
-			Tooltip: ""
-		}
-
-		ProjName: {
-			Label: 显示弹幕名称
-			Tooltip: ""
-		}
-	}
-
-	DeviMusic: {
-		Tooltip: 复活吧，我的爱人！
-		Default.Label: 默认
-		LexusCyanixs.Label: Lexus Cyanixs
-		DanceOfDeviance.Label: Dance Of Deviance
-	}
-
-	AbomMusic: {
-		Tooltip: ""
-		Default.Label: 默认
-		Stigma.Label: Stigma
-	}
-
-	MutantMusic: {
-		Tooltip: ""
-		Default.Label: Default
-		rePrologue.Label: rePrologue
-		SteelRed.Label: Steel Red
-		Storia.Label: Storia
-	}
-
-	ProjNameDisplayer: {
-		Tooltip: ""
-
-		Enabled: {
-			Label: 启用
-			Tooltip: ""
-		}
-
-		Offset: {
-			Label: 文本绘制偏移
-			Tooltip: ""
-		}
-
-		TextColor: {
-			Label: 文本颜色
-			Tooltip: ""
-		}
-
-		BorderColor: {
-			Label: 边框颜色
-			Tooltip: ""
-		}
-	}
-
-	ProjectileOverriderConfig: {
-		DisplayName: 弹幕更改
-
-		Presets: {
-			Label: 预设
-			Tooltip: ""
-		}
-
-		Headers.GlobalTest: 全局改动
 
 		GlobalImmunityType: {
 			Label: 全局弹幕无敌帧类型
@@ -244,69 +89,9 @@ Configs: {
 			Label: 是否强制设置无视无敌帧
 			Tooltip: ""
 		}
-	}
 
-	ProjOverPreset: {
-		Tooltip: ""
-
-		Enabled: {
-			Label: 启用该预设
-			Tooltip: ""
-		}
-
-		PresetName: {
-			Label: 预设名称
-			Tooltip: ""
-		}
-
-		ProjChanges: {
-			Label: 弹幕更改
-			Tooltip: ""
-		}
-	}
-
-	ConfigExtra.DefaultPreset: 默认
-
-	ProjOverrider: {
-		Tooltip: ""
-
-		proj: {
-			Label: 弹幕
-			Tooltip: ""
-		}
-
-		Enabled: {
-			Label: 启用该弹幕更改
-			Tooltip: ""
-		}
-
-		OnSpawnDamageMult: {
-			Label: 伤害系数（单位：%）
-			Tooltip: ""
-		}
-
-		ProjImmuneType: {
-			Label: 无敌帧类型
-			Tooltip: ""
-		}
-
-		ImmunityCD: {
-			Label: 无敌帧时长
-			Tooltip: ""
-		}
-
-		Penetrate: {
-			Label: 穿透数
-			Tooltip: 该值小于-1时不生效
-		}
-
-		Remarks: {
-			Label: 备注
-			Tooltip: ""
-		}
-
-		Scale: {
-			Label: 大小（单位：%）
+		DeviMusicType: {
+			Label: 戴薇安Boss战BGM
 			Tooltip: ""
 		}
 	}
@@ -325,22 +110,173 @@ Configs: {
 		Enable.Label: True
 	}
 
-	ItemOverPreset: {
+	DeviMusic: {
+		Tooltip: 复活吧，我的爱人！
+		Default.Label: 默认
+		LexusCyanixs.Label: Lexus Cyanixs
+		DanceOfDeviance.Label: Dance Of Deviance
+	}
+
+	AbomMusic: {
 		Tooltip: ""
+		Default.Label: 默认
+		Stigma.Label: Stigma
+	}
 
-		Enabled: {
-			Label: 启用该预设
+	PreferenceConfig: {
+		DisplayName: 个人设置
+		Headers.ReviveOld: 旧物复生
+
+		SansGolem: {
+			Label: Sans Golem
+			// Tooltip: ""
+		}
+
+		DeviMusicType: {
+			Label: 德薇安Boss战BGM
+			// Tooltip: ""
+		}
+
+		AbomMusicType: {
+			Label: 憎恶Boss战BGM
+			// Tooltip: ""
+		}
+
+		ProjName: {
+			Label: 显示弹幕名称
+			// Tooltip: ""
+		}
+	}
+
+	ProjectileOverriderConfig: {
+		DisplayName: 弹幕更改
+
+		ProjChanges: {
+			Label: 弹幕更改
 			Tooltip: ""
 		}
 
-		PresetName: {
-			Label: 预设名称
-			Tooltip: ""
-		}
-
-		ItemChanges: {
-			Label: 物品更改
+		Presets: {
+			Label: 预设
 			Tooltip: ""
 		}
 	}
+
+	ConfigExtra.DefaultPreset: 默认
+
+	ProjOverrider: {
+		// Tooltip: ""
+
+		proj: {
+			Label: 弹幕
+			// Tooltip: ""
+		}
+
+		OnSpawnDamageMult: {
+			Label: 伤害系数
+			// Tooltip: ""
+		}
+
+		ProjImmuneType: {
+			Label: 无敌帧类型
+			// Tooltip: ""
+		}
+
+		ImmunityCD: {
+			Label: 无敌帧时长
+			// Tooltip: ""
+		}
+
+		Enabled: {
+			Label: 启用该弹幕更改
+			// Tooltip: ""
+		}
+	}
+
+	ItemOverriderConfig.DisplayName: Item Overrider Config
+
+	ProjNameDisplayer: {
+		// Tooltip: ""
+
+		Enabled: {
+			Label: 启用
+			// Tooltip: ""
+		}
+
+		OffsetX: {
+			// Label: Offset X
+			// Tooltip: ""
+		}
+
+		OffsetY: {
+			// Label: Offset Y
+			// Tooltip: ""
+		}
+
+		Offset: {
+			Label: 文本绘制偏移
+			// Tooltip: ""
+		}
+
+		TextColorR: {
+			// Label: Text Color R
+			// Tooltip: ""
+		}
+
+		TextColorG: {
+			// Label: Text Color G
+			// Tooltip: ""
+		}
+
+		TextColorB: {
+			// Label: Text Color B
+			// Tooltip: ""
+		}
+
+		TextColor: {
+			Label: 文本颜色
+			// Tooltip: ""
+		}
+
+		BorderColorR: {
+			// Label: Border Color R
+			// Tooltip: ""
+		}
+
+		BorderColorG: {
+			// Label: Border Color G
+			// Tooltip: ""
+		}
+
+		BorderColorB: {
+			// Label: Border Color B
+			// Tooltip: ""
+		}
+
+		BorderColor: {
+			Label: 边框颜色
+			// Tooltip: ""
+		}
+	}
+
+	ProjOverPreset: {
+		// Tooltip: ""
+
+		PresetName: {
+			Label: 预设名称
+			// Tooltip: ""
+		}
+
+		ProjChanges: {
+			Label: 弹幕更改
+			// Tooltip: ""
+		}
+
+		Enabled: {
+			Label: 启用该预设
+			// Tooltip: ""
+		}
+	}
+
+	
 }

@@ -8,14 +8,14 @@ using Terraria.ModLoader.Config;
 
 namespace AFargoTweak
 {
-    public class AFargoTweak : Mod
+	public class AFargoTweak : Mod
 	{
         public override void Load()
         {
             base.Load();
             FargoMod = ModLoader.GetMod("FargowiltasSouls");
             AFargoTweak.Instance = this;
-            ConfigInstance = ModContent.GetInstance<AccConfig>();
+            ConfigInstance = ModContent.GetInstance<AFTConfig>();
 
         }
         public override void Unload()
@@ -26,7 +26,7 @@ namespace AFargoTweak
             base.Unload();
         }
         
-        public static AccConfig ConfigInstance;
+        public static AFTConfig ConfigInstance;
         public static AFargoTweak Instance;
         public static Mod FargoMod;
     }

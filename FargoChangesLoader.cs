@@ -1,5 +1,4 @@
-﻿using AFargoTweak.Configs;
-using FargowiltasSouls.Content.Items.Weapons.BossDrops;
+﻿using FargowiltasSouls.Content.Items.Weapons.BossDrops;
 using FargowiltasSouls.Content.Items.Weapons.SwarmDrops;
 using FargowiltasSouls.Content.Patreon.Volknet.Projectiles;
 using System;
@@ -82,102 +81,68 @@ namespace AFargoTweak
             }
             public void ApplyChanges_SetDefault(Item item)
             {
-                //CommonItemChanges i = ItemChanges[item.type];
-                if (Damage != -1) item.damage = Damage;
-                if (UseTime != -1) item.useTime = UseTime;
-                if (UseAnimation != -1) item.useAnimation = UseAnimation;
-                if (Crit != -1) item.crit = Crit;
-                if (ArmorPen != -1) item.ArmorPenetration = ArmorPen;
-                if (ShootType != -1) item.shoot = ShootType;
-                if (ShootSpeed != -1) item.shootSpeed = ShootSpeed;
-                if (MaxStack != -1) item.maxStack = MaxStack;
-                if (Sound != null) item.UseSound = Sound;
-                if (Rare != -1) item.rare = Rare;
-                if (BuyValue != -1) item.value = BuyValue;
-                if (AutoReuse != null) item.autoReuse = (bool)AutoReuse;
-                if (Mana != -1) item.mana = Mana;
-                if (Defense != -1) item.defense = Defense;
-                if (ReuseDelay != -1) item.reuseDelay = ReuseDelay;
-                if (DmgType != null) item.DamageType = DmgType;
-                if (NoMelee != null) item.noMelee = (bool)NoMelee;
-                if (Channel != null) item.channel = (bool)Channel;
-                if (NoUseGraphic != null) item.noUseGraphic = (bool)NoUseGraphic;
-                if (ShootEveryUse != null) item.shootsEveryUse = (bool)ShootEveryUse;
-                if (UseStyle != -1) item.useStyle = UseStyle;
-                if (Height != -1) item.height = Height;
-                if (Width != -1) item.width = Width;
+                CommonItemChanges i = ItemChanges[item.type];
+                if (i.Damage != -1) item.damage = i.Damage;
+                if (i.UseTime != -1) item.useTime = i.UseTime;
+                if (i.UseAnimation != -1) item.useAnimation = i.UseAnimation;
+                if (i.Crit != -1) item.crit = i.Crit;
+                if (i.ArmorPen != -1) item.ArmorPenetration = i.ArmorPen;
+                if (i.ShootType != -1) item.shoot = i.ShootType;
+                if (i.ShootSpeed != -1) item.shootSpeed = i.ShootSpeed;
+                if (i.MaxStack != -1) item.maxStack = i.MaxStack;
+                if (i.Sound != null) item.UseSound = i.Sound;
+                if (i.Rare != -1) item.rare = i.Rare;
+                if (i.BuyValue != -1) item.value = i.BuyValue;
+                if (i.AutoReuse != null) item.autoReuse = (bool)i.AutoReuse;
+                if (i.Mana != -1) item.mana = i.Mana;
+                if (i.Defense != -1) item.defense = i.Defense;
+                if (i.ReuseDelay != -1) item.reuseDelay = i.ReuseDelay;
+                if (i.DmgType != null) item.DamageType = i.DmgType;
+                if (i.NoMelee != null) item.noMelee = (bool)i.NoMelee;
+                if (i.Channel != null) item.channel = (bool)i.Channel;
+                if (i.NoUseGraphic != null) item.noUseGraphic = (bool)i.NoUseGraphic;
+                if (i.ShootEveryUse != null) item.shootsEveryUse = (bool)i.ShootEveryUse;
+                if (i.UseStyle != -1) item.useStyle = i.UseStyle;
+                if (i.Height != -1) item.height = i.Height;
+                if (i.Width != -1) item.width = i.Width;
             }
         }
 
         public class CommonProjectileChanges
         {
-            public int Type;
             public float OnSpawnDamageMult;
             public int ExtraUpdates;
             public int[] OnHitBuffType;
             public int[] OnHitBuffDuration;
-            public AFTUtils.NPCImmunityType ImmuneType;
-            public int ImmunityCD;
-            public int Penetrate;
-            public float Scale;
-            public CommonProjectileChanges(int type, float dmgMult = 1f, AFTUtils.NPCImmunityType immuneType = AFTUtils.NPCImmunityType.None, int immunityCD = 10, int penetrate = -2, float scale = 1f, int exUpdates = -1, int[] onHitBuff = null, int[] onHitBuffTime = null)
+            public CommonProjectileChanges(float dmgMult = -1f,int exUpdates = -1, int[] onHitBuff = null, int[] onHitBuffTime = null)
             {
-                Type = type;
                 OnSpawnDamageMult = dmgMult;
-                ImmuneType = immuneType;
-                ImmunityCD = immunityCD;
                 ExtraUpdates = exUpdates;
                 OnHitBuffType = onHitBuff;
                 OnHitBuffDuration = onHitBuffTime;
-                Penetrate = penetrate;
-                Scale = scale;
             }
             public void ApplyChanges_OnSpawn(Projectile projectile)
             {
-                //CommonProjectileChanges p = ProjectileChanges.Find(proj => proj.Type == projectile.type);
-                projectile.damage = (int)(projectile.damage * OnSpawnDamageMult);
-                if (ImmuneType != AFTUtils.NPCImmunityType.None)
-                {
-                    switch (ImmuneType)
-                    {
-                        case AFTUtils.NPCImmunityType.Local:
-                            projectile.usesIDStaticNPCImmunity = false;
-                            projectile.usesLocalNPCImmunity = true;
-                            projectile.localNPCHitCooldown = ImmunityCD;
-                            break;
-                        case AFTUtils.NPCImmunityType.IDStatic:
-                            projectile.usesLocalNPCImmunity = false;
-                            projectile.usesIDStaticNPCImmunity = true;
-                            projectile.idStaticNPCHitCooldown = ImmunityCD;
-                            break;
-                        default:break;
-                    }
-                }
-                if (Penetrate > -2)
-                    projectile.penetrate = Penetrate;
-                projectile.scale *= Scale;
-                if (ExtraUpdates != -1) projectile.extraUpdates = ExtraUpdates;
-            }
-            public void ApplyChanges_ModifyHit(Projectile projectile, ref NPC.HitModifiers modifiers)
-            {
-                modifiers.FinalDamage *= OnSpawnDamageMult;
+                CommonProjectileChanges p = ProjectileChanges[projectile.type];
+                if (p.OnSpawnDamageMult > 0) projectile.damage = (int)(projectile.damage * p.OnSpawnDamageMult);
+                if (p.ExtraUpdates != -1) projectile.extraUpdates = p.ExtraUpdates;
             }
             public void ApplyChanges_OnHit(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone)
             {
-                //CommonProjectileChanges p = ProjectileChanges[projectile.type];
-                if (OnHitBuffType != null)
+                CommonProjectileChanges p = ProjectileChanges[projectile.type];
+                if (p.OnHitBuffType != null)
                 {
                     for(int i = 0; i < OnHitBuffType.Length; i++)
                     {
-                        target.AddBuff(OnHitBuffType[i], OnHitBuffDuration[i]);
+                        target.AddBuff(p.OnHitBuffType[i], p.OnHitBuffDuration[i]);
                     }
                 }
                 
             }
         }
 
-        public static Dictionary<int, CommonItemChanges> ItemChanges = new();
-        public static List<CommonProjectileChanges> ProjectileChanges = new();
+        public static Dictionary<int, CommonItemChanges> ItemChanges = new Dictionary<int, CommonItemChanges>();
+        public static Dictionary<int, CommonProjectileChanges> ProjectileChanges = new Dictionary<int, CommonProjectileChanges>();
 
         //public override void PostSetupContent()
         //{
@@ -187,51 +152,18 @@ namespace AFargoTweak
         public static void Item_LoadChange()
         {
             if (ItemChanges is not null) ItemChanges.Clear();
-            ItemOverriderConfig.Instance.Presets.ForEach((preset) =>
-            {
-                if (preset.Enabled)
-                {
-                    preset.ItemChanges.ForEach((item) =>
-                    {
-                        if (item.Enabled)
-                        {
-                            if (ItemChanges.ContainsKey(item.item.Type))
-                            {
-                                ItemChanges.Remove(item.item.Type);
-                            }
-                            ItemChanges.Add(item.item.Type, new CommonItemChanges(
-                                item.Damage > 0 ? item.Damage : -1,
-                                useTime: item.UseTime > 0 ? item.UseTime : -1,
-                                useAnim: item.UseAnimation > 0 ? item.UseAnimation : -1));
-                        }
-                    });
-                }
-            });
+            ItemChanges.Add(ModContent.ItemType<NukeFishron>(), new(damage: 951, useAnim: 60, useTime: 60));//核子猪鲨
+            ItemChanges.Add(ModContent.ItemType<DragonBreath2>(), new(damage: 221));//龙之终焉
+            ItemChanges.Add(ModContent.ItemType<RockSlide>(), new(damage: 394));
+            ItemChanges.Add(ModContent.ItemType<GeminiGlaives>(), new(damage: 386));
+            //ItemChanges.Add(ItemID.Zenith, new(damage: 230));
         }
 
         public static void Projectile_LoadChange()
         {
             if (ProjectileChanges is not null) ProjectileChanges.Clear();
-            ProjectileOverriderConfig.Instance.Presets.ForEach((preset) =>
-            {
-                if (preset.Enabled)
-                {
-                    preset.ProjChanges.ForEach((proj) =>
-                    {
-                        if (proj.Enabled)
-                        {
-                            ProjectileChanges.Add(new CommonProjectileChanges(proj.proj.Type,
-                                proj.OnSpawnDamageMult != 100 ? proj.OnSpawnDamageMult / 100f : 1f, 
-                                proj.ProjImmuneType, 
-                                proj.ImmunityCD,
-                                proj.Penetrate,
-                                proj.Scale != 100 ? proj.Scale / 100f : 1f));
-                        }
-                    });
-                }
-            });
-            //ProjectileChanges.Add(ModContent.ProjectileType<PlasmaArrow>(), new(1.75f / 1.6f));
-            //ProjectileChanges.Add(ModContent.ProjectileType<PlasmaDeathRay>(), new(3 / 2.5f));
+            ProjectileChanges.Add(ModContent.ProjectileType<PlasmaArrow>(), new(1.75f / 1.6f));
+            ProjectileChanges.Add(ModContent.ProjectileType<PlasmaDeathRay>(), new(3 / 2.5f));
         }
     }
 }

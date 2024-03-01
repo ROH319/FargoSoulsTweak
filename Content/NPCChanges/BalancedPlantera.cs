@@ -34,7 +34,7 @@ namespace AFargoTweak.Content.NPCChanges
             //c.Emit(Mono.Cecil.Cil.OpCodes.Ldc_I4, 0);//塞个false进去
 
 
-            if (!c.TryGotoNext(i => i.MatchLdloc(123)))
+            if (!c.TryGotoNext(i => i.MatchLdloc(116)))
                 return;
             c.Index++;
             c.Emit(Mono.Cecil.Cil.OpCodes.Pop);//把你maso踹了让你叶绿水晶环无法预判
