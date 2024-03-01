@@ -1,6 +1,6 @@
 displayName = AC's FargoSouls Tweaks 法狗平衡重制
 author = ROH
-version = 0.0.1
+version = 0.0.2
 modReferences = FargowiltasSouls
 includeSource = true
 dllReferences = MMHOOK_FargowiltasSouls

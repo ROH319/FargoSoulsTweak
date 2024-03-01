@@ -22,9 +22,12 @@ namespace AFargoTweak.Content.NPCChanges
         public static void PatchAI(ILContext il)
         {
             var c = new ILCursor(il);
-            if (!c.TryGotoNext(i => i.MatchLdloc(18)))
+            if (!c.TryGotoNext(i => i.MatchStloc(11)))
+            {
+                throw new Exception("IL edit 11 failed");
                 return;
-            c.Index++;
+            }
+            c.Index-=6;
             c.EmitDelegate<Func<bool, bool>>((entered) =>
             {
                 if (!WorldSavingSystem.MasochistModeReal) return false;//没maso你也想进三阶段？
@@ -33,12 +36,24 @@ namespace AFargoTweak.Content.NPCChanges
             //c.Emit(Mono.Cecil.Cil.OpCodes.Pop);//把你EnteredPhase3踹咯
             //c.Emit(Mono.Cecil.Cil.OpCodes.Ldc_I4, 0);//塞个false进去
 
-
-            if (!c.TryGotoNext(i => i.MatchLdloc(123)))
+            if (!c.TryGotoNext(i => i.MatchStloc(56)))
+            {
+                throw new Exception("IL edit failed");
                 return;
-            c.Index++;
-            c.Emit(Mono.Cecil.Cil.OpCodes.Pop);//把你maso踹了让你叶绿水晶环无法预判
-            c.Emit(Mono.Cecil.Cil.OpCodes.Ldc_I4, 0);//塞个false进去
+            }
+            c.Index += 2;
+            c.EmitDelegate<Func<bool, bool>>((maso) =>
+            {
+                return false;
+            });
+            //if (!c.TryGotoNext(i => i.MatchStloc(123)))
+            //{
+            //    throw new Exception("IL edit failed");
+            //    return;
+            //}
+            //c.Index--;
+            //c.Emit(Mono.Cecil.Cil.OpCodes.Pop);//把你maso踹了让你叶绿水晶环无法预判
+            //c.Emit(Mono.Cecil.Cil.OpCodes.Ldc_I4, 0);//塞个false进去
         }
 
         public override NPCMatcher CreateMatcher() => new NPCMatcher().MatchType(NPCID.Plantera);
