@@ -1,47 +1,9 @@
 Configs: {
-	AFTConfig: {
-		DisplayName: AFT Config
-
-		Headers: {
-			ReviveOld: Fargo Reviver
-			BalanceChange: Balance Change Header
-			BalanceChangeAcc: Balance Change - Acc
-			BalanceChangeWeapon: Balance Change - Weapon
-			GlobalTest: Global Test Header
-		}
-
-		SansGolem: {
-			Label: Sans Golem
-			Tooltip: ""
-		}
+	AccConfig: {
+		DisplayName: Acc Config
 
 		ComputationOrbRegenCD: {
-			Label: "[i:FargowiltasSouls/ComputationOrb]{$Mods.FargowiltasSouls.Items.ComputationOrb.DisplayName} ManaRegenCooldown"
-			Tooltip: ""
-		}
-
-		MagicSoulManaCostRedu: {
-			Label: "[i:FargowiltasSouls/ArchWizardsSoul]{$Mods.FargowiltasSouls.Items.ArchWizardsSoul.DisplayName} ManaCostRedution%"
-			Tooltip: ""
-		}
-
-		UniversalSoulManaCoseRedu: {
-			Label: "[i:FargowiltasSouls/UniverseSoul]{$Mods.FargowiltasSouls.Items.UniverseSoul.DisplayName} ManaCostRedution%"
-			Tooltip: ""
-		}
-
-		DragonBreath2FireBallDmgMul: {
-			Label: "[i:FargowiltasSouls/DragonBreath2]{$Mods.FargowiltasSouls.Items.DragonBreath2.DisplayName} FireBall Damage Multiplication%"
-			Tooltip: ""
-		}
-
-		PrimeDeathrayStaticImmunity: {
-			Label: "[i:FargowiltasSouls/RefractorBlaster2]{$Mods.FargowiltasSouls.Items.RefractorBlaster2.DisplayName} PrimeDeathRay Use IDStatic Immunity"
-			Tooltip: ""
-		}
-
-		PrimeDeathrayImmunityCD: {
-			Label: "[i:FargowiltasSouls/RefractorBlaster2]{$Mods.FargowiltasSouls.Items.RefractorBlaster2.DisplayName} PrimeDeathRay IDStatic Immunity Cooldown"
+			Label: Computation Orb Regen C D
 			Tooltip: ""
 		}
 
@@ -52,6 +14,21 @@ Configs: {
 
 		ComputationOrbCritDmg: {
 			Label: Computation Orb Crit Dmg
+			Tooltip: ""
+		}
+
+		ExtraWizardSlot: {
+			Label: Extra Wizard Slot
+			Tooltip: ""
+		}
+
+		MagicSoulManaCostRedu: {
+			Label: Magic Soul Mana Cost Redu
+			Tooltip: ""
+		}
+
+		UniversalSoulManaCoseRedu: {
+			Label: Universal Soul Mana Cose Redu
 			Tooltip: ""
 		}
 
@@ -74,47 +51,93 @@ Configs: {
 			Label: Eridanus Hat Extra Turrets
 			Tooltip: ""
 		}
+	}
 
-		GlobalImmunityType: {
-			Label: Global Immunity Type
-			Tooltip: ""
-		}
+	BossConfig: {
+		DisplayName: Boss Config
+		Headers.Mutant: Mutant Header
 
-		GlobalImmunityCD: {
-			Label: Global Immunity C D
-			Tooltip: ""
-		}
-
-		GlobalIgnoreImmunity: {
-			Label: Global Ignore Immunity
-			Tooltip: ""
-		}
-
-		DeviMusicType: {
-			Label: Devi Music Type
+		MutantSetting: {
+			Label: Mutant Setting
 			Tooltip: ""
 		}
 	}
 
-	NPCImmunityType: {
+	MutantConfig: {
 		Tooltip: ""
-		None.Label: None
-		Local.Label: Local
-		IDStatic.Label: I D Static
+
+		MasoCanRandom: {
+			Label: Maso Can Random
+			Tooltip: ""
+		}
+
+		LowLifeCanRandom: {
+			Label: Low Life Can Random
+			Tooltip: ""
+		}
+
+		ForceRandom: {
+			Label: Force Random
+			Tooltip: ""
+		}
+
+		AllowRecentAttack: {
+			Label: Allow Recent Attack
+			Tooltip: ""
+		}
+
+		SkipP1Required: {
+			Label: Skip P1 Required
+			Tooltip: ""
+		}
+
+		MasoCanSkip: {
+			Label: Maso Can Skip
+			Tooltip: ""
+		}
+
+		MutantEyeCompressFactor: {
+			Label: Mutant Eye Compress Factor
+			Tooltip: ""
+		}
 	}
 
-	ForcesImmunity: {
-		Tooltip: ""
-		None.Label: None
-		Disable.Label: Disable
-		Enable.Label: Enable
+	ItemOverriderConfig: {
+		DisplayName: Item Overrider Config
+
+		Presets: {
+			Label: Presets
+			Tooltip: ""
+		}
 	}
 
-	DeviMusic: {
+	ItemOverrider: {
 		Tooltip: ""
-		Default.Label: Default
-		LexusCyanixs.Label: Lexus Cyanixs
-		DanceOfDeviance.Label: Dance Of Deviance
+
+		item: {
+			Label: item
+			Tooltip: ""
+		}
+
+		Enabled: {
+			Label: Enabled
+			Tooltip: ""
+		}
+
+		Damage: {
+			Label: Damage
+			Tooltip: ""
+		}
+
+		UseTime: {
+			Label: Use Time
+			Tooltip: ""
+		}
+
+		UseAnimation: {
+			Label: Use Animation
+			Tooltip: ""
+		}
 	}
 
 	PreferenceConfig: {
@@ -132,7 +155,17 @@ Configs: {
 		}
 
 		AbomMusicType: {
-			Label: ����BossսBGM
+			Label: Abom Music Type
+			Tooltip: ""
+		}
+
+		MutantMusicTypeP1: {
+			Label: Mutant Music Type P1
+			Tooltip: ""
+		}
+
+		MutantMusicTypeP2: {
+			Label: Mutant Music Type P2
 			Tooltip: ""
 		}
 
@@ -142,16 +175,92 @@ Configs: {
 		}
 	}
 
-	ProjectileOverriderConfig: {
-		DisplayName: Projectile Overrider Config
+	DeviMusic: {
+		Tooltip: ""
+		Default.Label: Default
+		LexusCyanixs.Label: Lexus Cyanixs
+		DanceOfDeviance.Label: Dance Of Deviance
+	}
 
-		ProjChanges: {
-			Label: Proj Changes
+	AbomMusic: {
+		Tooltip: ""
+		Default.Label: Default
+		Stigma.Label: Stigma
+	}
+
+	MutantMusic: {
+		Tooltip: ""
+		Default.Label: Default
+		rePrologue.Label: re Prologue
+		SteelRed.Label: Steel Red
+		Storia.Label: Storia
+	}
+
+	ProjNameDisplayer: {
+		Tooltip: ""
+
+		Enabled: {
+			Label: Enabled
 			Tooltip: ""
 		}
 
+		Offset: {
+			Label: Offset
+			Tooltip: ""
+		}
+
+		TextColor: {
+			Label: Text Color
+			Tooltip: ""
+		}
+
+		BorderColor: {
+			Label: Border Color
+			Tooltip: ""
+		}
+	}
+
+	ProjectileOverriderConfig: {
+		DisplayName: Projectile Overrider Config
+
 		Presets: {
 			Label: Presets
+			Tooltip: ""
+		}
+
+		Headers.GlobalTest: Global Test Header
+
+		GlobalImmunityType: {
+			Label: Global Immunity Type
+			Tooltip: ""
+		}
+
+		GlobalImmunityCD: {
+			Label: Global Immunity C D
+			Tooltip: ""
+		}
+
+		GlobalIgnoreImmunity: {
+			Label: Global Ignore Immunity
+			Tooltip: ""
+		}
+	}
+
+	ProjOverPreset: {
+		Tooltip: ""
+
+		Enabled: {
+			Label: Enabled
+			Tooltip: ""
+		}
+
+		PresetName: {
+			Label: Preset Name
+			Tooltip: ""
+		}
+
+		ProjChanges: {
+			Label: Proj Changes
 			Tooltip: ""
 		}
 	}
@@ -163,6 +272,11 @@ Configs: {
 
 		proj: {
 			Label: proj
+			Tooltip: ""
+		}
+
+		Enabled: {
+			Label: Enabled
 			Tooltip: ""
 		}
 
@@ -181,100 +295,52 @@ Configs: {
 			Tooltip: ""
 		}
 
-		Enabled: {
-			Label: Enabled
+		Penetrate: {
+			Label: Penetrate
+			Tooltip: ""
+		}
+
+		Remarks: {
+			Label: Remarks
+			Tooltip: ""
+		}
+
+		Scale: {
+			Label: Scale
 			Tooltip: ""
 		}
 	}
 
-	ItemOverriderConfig.DisplayName: Item Overrider Config
+	NPCImmunityType: {
+		Tooltip: ""
+		None.Label: None
+		Local.Label: Local
+		IDStatic.Label: I D Static
+	}
 
-	ProjNameDisplayer: {
+	ForcesImmunity: {
+		Tooltip: ""
+		None.Label: None
+		Disable.Label: Disable
+		Enable.Label: Enable
+	}
+
+	ItemOverPreset: {
 		Tooltip: ""
 
 		Enabled: {
 			Label: Enabled
 			Tooltip: ""
 		}
-
-		OffsetX: {
-			Label: Offset X
-			Tooltip: ""
-		}
-
-		OffsetY: {
-			Label: Offset Y
-			Tooltip: ""
-		}
-
-		Offset: {
-			Label: Offset
-			Tooltip: ""
-		}
-
-		TextColorR: {
-			Label: Text Color R
-			Tooltip: ""
-		}
-
-		TextColorG: {
-			Label: Text Color G
-			Tooltip: ""
-		}
-
-		TextColorB: {
-			Label: Text Color B
-			Tooltip: ""
-		}
-
-		TextColor: {
-			Label: Text Color
-			Tooltip: ""
-		}
-
-		BorderColorR: {
-			Label: Border Color R
-			Tooltip: ""
-		}
-
-		BorderColorG: {
-			Label: Border Color G
-			Tooltip: ""
-		}
-
-		BorderColorB: {
-			Label: Border Color B
-			Tooltip: ""
-		}
-
-		BorderColor: {
-			Label: Border Color
-			Tooltip: ""
-		}
-	}
-
-	ProjOverPreset: {
-		Tooltip: ""
 
 		PresetName: {
 			Label: Preset Name
 			Tooltip: ""
 		}
 
-		ProjChanges: {
-			Label: Proj Changes
+		ItemChanges: {
+			Label: Item Changes
 			Tooltip: ""
 		}
-
-		Enabled: {
-			Label: Enabled
-			Tooltip: ""
-		}
-	}
-
-	AbomMusic: {
-		Tooltip: ""
-		Default.Label: Default
-		Stigma.Label: Stigma
 	}
 }

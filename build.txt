@@ -1,4 +1,4 @@
-displayName = FargoSouls Anomalies 法狗平衡重制
+displayName = AC's FargoSouls Tweaks 法狗平衡重制
 author = ROH
 version = 0.0.1
 modReferences = FargowiltasSouls

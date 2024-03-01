@@ -26,7 +26,21 @@ namespace AFargoTweak.Configs
         [DefaultValue(AFTUtils.AbomMusic.Default)]
         [DrawTicks]
         public AFTUtils.AbomMusic AbomMusicType;
+
+        [DefaultValue(AFTUtils.MutantMusic.Default)]
+        [DrawTicks]
+        public AFTUtils.MutantMusic MutantMusicTypeP1;
+
+        [DefaultValue(AFTUtils.MutantMusic.Default)]
+        [DrawTicks]
+        [ReloadRequired]
+        public AFTUtils.MutantMusic MutantMusicTypeP2;
         public ProjNameDisplayer ProjName = new();
+
+        public override void OnChanged()
+        {
+            base.OnChanged();
+        }
     }
     public class ProjNameDisplayer
     {

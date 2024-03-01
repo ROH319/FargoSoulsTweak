@@ -1,13 +1,18 @@
 ﻿using AFargoTweak.Configs;
 using AFargoTweak.Content.ItemChanges.Accessories;
 using AFargoTweak.Content.NPCChanges;
+using AFargoTweak.Content.NPCChanges.VanillaEternity;
 using AFargoTweak.Content.ProjectileOverrides;
+using AFargoTweak.Content.ProjectileOverrides.BossWeapons;
 using FargowiltasSouls.Content.Bosses.MutantBoss;
 using FargowiltasSouls.Content.Bosses.VanillaEternity;
 using FargowiltasSouls.Content.Items.Weapons.SwarmDrops;
 using FargowiltasSouls.Content.Patreon;
 using FargowiltasSouls.Content.Projectiles.BossWeapons;
+using FargowiltasSouls.Content.Projectiles.Masomode;
+using FargowiltasSouls.Content.Projectiles.Minions;
 using FargowiltasSouls.Core.ModPlayers;
+using Microsoft.CodeAnalysis.FlowAnalysis;
 using MonoMod.Cil;
 using System;
 using System.Collections.Generic;
@@ -70,22 +75,55 @@ namespace AFargoTweak
             MethodInfo patreonGItem = typeof(PatreonGlobalItem).GetMethod("CanUseItem");
             MonoModHooks.Add(patreonGItem, BalancedComputationOrb.CanUseItemHook);
 
+            //巫师魔石
+            MethodInfo fsplrForceEff = typeof(FargoSoulsPlayer).GetMethod("ForceEffect", new Type[] { typeof(ModItem) });
+            MonoModHooks.Add(fsplrForceEff, BalancedWizardEnch.ForceHook);
+
             //龙之终焉火球倍率
             //MethodInfo dragonBreath2Shoot = typeof(DragonBreath2).GetMethod("Shoot");
             //MonoModHooks.Add(dragonBreath2Shoot, BalancedDragonBreath2.ShootHook);
 
             //衍射暗星炮烈焰死亡射线无敌帧修改
-            MethodInfo primeDeathRayOnHit = typeof(PrimeDeathray).GetMethod("OnHitNPC");
-            MonoModHooks.Add(primeDeathRayOnHit, BalancedPrimeDeathRay.OnHitNPCHook);
+            //MethodInfo primeDeathRayOnHit = typeof(PrimeDeathray).GetMethod("OnHitNPC");
+            //MonoModHooks.Add(primeDeathRayOnHit, BalancedPrimeDeathRay.OnHitNPCHook);
 
-            //MethodInfo mutantSpearDashDirect = typeof(MutantBoss).GetMethod("SpearDashDirectP2", BindingFlags.Instance | BindingFlags.NonPublic);
-            //MonoModHooks.Modify(mutantSpearDashDirect, BalancedMutant.PatchSpearDashDirectP2);
-            //MethodInfo mutantBulletHellp2 = typeof(MutantBoss).GetMethod("BoundaryBulletHellP2", BindingFlags.Instance | BindingFlags.NonPublic);
-            //MonoModHooks.Add(mutantBulletHellp2, BalancedMutant.BulletHellHook);
+            #region DarkStar 暗星
+            //MethodInfo darkstarFriTex = typeof(MechElectricOrbFriendly).GetProperty("Texture")?.GetGetMethod();
+            //MonoModHooks.Add(darkstarFriTex, BalancedDarkStarFriendly.DSFriendlyTextureHook);
+            //MethodInfo darkstarTex = typeof(MechElectricOrb).GetProperty("Texture")?.GetGetMethod();
+            //MonoModHooks.Add(darkstarTex, BalancedDarkStar.DSTextureHook);
+            //MethodInfo darkstarDesTex = typeof(MechElectricOrbDestroyer).GetProperty("Texture")?.GetGetMethod();
+            //MonoModHooks.Add(darkstarDesTex, BalancedDarkStarDestroyer.DSDestroyerTexHook);
+            //MethodInfo darkstarHomTex = typeof(MechElectricOrbHoming).GetProperty("Texture")?.GetGetMethod();
+            //MonoModHooks.Add(darkstarHomTex, BalancedDarkStarHoming.DSHomingTexHook);
+            //MethodInfo darkstarHomFriTex = typeof(MechElectricOrbHomingFriendly).GetProperty("Texture")?.GetGetMethod();
+            //MonoModHooks.Add(darkstarHomFriTex, BalancedDarkStarHomFri.DSHomFriHook);
+            //MethodInfo darkstarTwinTex = typeof(MechElectricOrbTwins).GetProperty("Texture")?.GetGetMethod();
+            //MonoModHooks.Add(darkstarTwinTex, BalancedDarkStarTwin.DSTwinTexHook);
+            #endregion
+
+            //突变体
             MethodInfo mutantChooseAttack = typeof(MutantBoss).GetMethod("ChooseNextAttack", BindingFlags.NonPublic | BindingFlags.Instance);
             MonoModHooks.Add(mutantChooseAttack, BalancedMutant.ChooseAttackHook);
-            IL.FargowiltasSouls.Content.Bosses.VanillaEternity.Plantera.SafePreAI += BalancedPlantera.PatchAI;
-            
+            MethodInfo mutantP1Checks = typeof(MutantBoss).GetMethod("SpearTossDirectP1AndChecks", BindingFlags.NonPublic | BindingFlags.Instance);
+            MonoModHooks.Add(mutantP1Checks, BalancedMutant.P1CheckHook);
+            MethodInfo mutantEModeSpecialEffects = typeof(MutantBoss).GetMethod("EModeSpecialEffects", BindingFlags.NonPublic | BindingFlags.Instance);
+            MonoModHooks.Add(mutantEModeSpecialEffects, BalancedMutant.EMSEHook);
+
+            //小花
+            //IL.FargowiltasSouls.Content.Bosses.VanillaEternity.Plantera.SafePreAI += BalancedPlantera.PatchAI;
+            MethodInfo planteraPreAI = typeof(Plantera).GetMethod("SafePreAI");
+            MonoModHooks.Modify(planteraPreAI, BalancedPlantera.PatchAI);
+
+            //毁灭者
+            MethodInfo destroyersegmentOHByProj = typeof(DestroyerSegment).GetMethod("SafeOnHitByProjectile");
+            MonoModHooks.Add(destroyersegmentOHByProj, BalancedDestroyerSegment.OHByProjHook);
+
+            //骷髅王
+            MethodInfo skehandPreAI = typeof(SkeletronHand).GetMethod("SafePreAI");
+            MonoModHooks.Add(skehandPreAI, BalancedSkeletronHand.SafePreAIHook);
+            MethodInfo skehandPostAI = typeof(SkeletronHand).GetMethod("SafePostAI");
+            MonoModHooks.Add(skehandPostAI, BalancedSkeletronHand.SafePostAIHook);
 
             base.Load();
         }

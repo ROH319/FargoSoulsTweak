@@ -98,7 +98,7 @@ Configs: {
 
 		MutantEyeCompressFactor: {
 			Label: 深蓝冲刺幻影眼集中释放倍率
-			Tooltip: 为8时每帧释放
+			Tooltip: "为8时每帧释放"
 		}
 	}
 
@@ -126,17 +126,17 @@ Configs: {
 
 		Damage: {
 			Label: 伤害
-			Tooltip: 该值小于等于0时不生效
+			Tooltip: "该值小于等于0时不生效"
 		}
 
 		UseTime: {
 			Label: 使用时间
-			Tooltip: 该值小于等于0时不生效
+			Tooltip: "该值小于等于0时不生效"
 		}
 
 		UseAnimation: {
 			Label: 使用动画时间
-			Tooltip: 该值小于等于0时不生效
+			Tooltip: "该值小于等于0时不生效"
 		}
 	}
 
@@ -297,7 +297,7 @@ Configs: {
 
 		Penetrate: {
 			Label: 穿透数
-			Tooltip: 该值小于-1时不生效
+			Tooltip: ""
 		}
 
 		Remarks: {
