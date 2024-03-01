@@ -1,4 +1,7 @@
-﻿using FargowiltasSouls;
+﻿using AFargoTweak.Configs;
+using FargowiltasSouls;
+using FargowiltasSouls.Content.Items.Accessories.Enchantments;
+using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Core.ModPlayers;
 using System;
 using System.Collections.Generic;
@@ -12,11 +15,39 @@ namespace AFargoTweak
 {
     public class AFTModPlayer : ModPlayer
     {
+        public List<Item> ExtraWizardedItem = new();
         public override void PreUpdate()
         {
-            FargoChangesLoader.Item_LoadChange();
-            FargoChangesLoader.Projectile_LoadChange();
+            if (Main.GameUpdateCount % 60 == 0)
+            {
+                FargoChangesLoader.Item_LoadChange();
+                FargoChangesLoader.Projectile_LoadChange();
+            }
             base.PreUpdate();
+        }
+        public override void ResetEffects()
+        {
+            base.ResetEffects();
+            //if (ExtraWizardedItem == null) ExtraWizardedItem = new();
+            ExtraWizardedItem.Clear();
+            if (Player.FargoSouls().WizardEnchantActive)
+            {
+                for (int i = 3; i <= 8; i++)
+                {
+                    if (!Player.armor[i].IsAir && (Player.armor[i].type == ModContent.ItemType<WizardEnchant>() || Player.armor[i].type == ModContent.ItemType<CosmoForce>()))
+                    {
+                        int slot = i + Math.Min(AccConfig.Instance.ExtraWizardSlot, 9 - i);
+                        for(int j = i; j < slot; j++)
+                        {
+                            Item ench = Player.armor[j + 2];
+                            if(ench != null && !ench.IsAir && ench.ModItem != null && ench.ModItem is BaseEnchant)
+                            {
+                                ExtraWizardedItem.Add(ench);
+                            }
+                        }
+                    }
+                }
+            }
         }
         public override void PostUpdateBuffs()
         {

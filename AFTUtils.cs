@@ -31,6 +31,9 @@ namespace AFargoTweak
             return projectile.GetGlobalProjectile<FargoGlobalProjectile>();
         }
 
+        public static AFTModPlayer AFT(this Player player)
+            => player.GetModPlayer<AFTModPlayer>();
+
         public enum NPCImmunityType
         {
             None,
@@ -55,6 +58,13 @@ namespace AFargoTweak
         {
             Default,
             Stigma
+        }
+        public enum MutantMusic
+        {
+            Default,
+            rePrologue,
+            SteelRed,
+            Storia
         }
     }
 }
