@@ -38,7 +38,8 @@ namespace AFargoTweak
         {
             None,
             Local,
-            IDStatic
+            IDStatic,
+            NPC
         }
 
         public enum ForcesImmunity

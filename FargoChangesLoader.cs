@@ -120,7 +120,8 @@ namespace AFargoTweak
             public int ImmunityCD;
             public int Penetrate;
             public float Scale;
-            public CommonProjectileChanges(int type, float dmgMult = 1f, AFTUtils.NPCImmunityType immuneType = AFTUtils.NPCImmunityType.None, int immunityCD = 10, int penetrate = -2, float scale = 1f, int exUpdates = -1, int[] onHitBuff = null, int[] onHitBuffTime = null)
+            public int ArmorPen;
+            public CommonProjectileChanges(int type, float dmgMult = 1f, AFTUtils.NPCImmunityType immuneType = AFTUtils.NPCImmunityType.None, int immunityCD = 10, int penetrate = -2, float scale = 1f, int armorpen = -1, int exUpdates = -1, int[] onHitBuff = null, int[] onHitBuffTime = null)
             {
                 Type = type;
                 OnSpawnDamageMult = dmgMult;
@@ -131,6 +132,11 @@ namespace AFargoTweak
                 OnHitBuffDuration = onHitBuffTime;
                 Penetrate = penetrate;
                 Scale = scale;
+                ArmorPen = armorpen;
+            }
+            public void ApplyChanges_SetDefault(Projectile projectile)
+            {
+                if (ArmorPen > -1) projectile.ArmorPenetration = ArmorPen;
             }
             public void ApplyChanges_OnSpawn(Projectile projectile)
             {
@@ -155,7 +161,14 @@ namespace AFargoTweak
                 }
                 if (Penetrate > -2)
                     projectile.penetrate = Penetrate;
-                projectile.scale *= Scale;
+                if (Scale != 1f)
+                {
+                    projectile.position = projectile.Center;
+                    projectile.scale *= Scale;
+                    projectile.width = (int)(projectile.width * Scale);
+                    projectile.height = (int)(projectile.height * Scale);
+                    projectile.Center = projectile.position;
+                }
                 if (ExtraUpdates != -1) projectile.extraUpdates = ExtraUpdates;
             }
             public void ApplyChanges_ModifyHit(Projectile projectile, ref NPC.HitModifiers modifiers)
@@ -172,7 +185,10 @@ namespace AFargoTweak
                         target.AddBuff(OnHitBuffType[i], OnHitBuffDuration[i]);
                     }
                 }
-                
+                if(ImmuneType == AFTUtils.NPCImmunityType.NPC)
+                {
+                    target.immune[projectile.owner] = ImmunityCD;
+                }
             }
         }
 
@@ -225,7 +241,8 @@ namespace AFargoTweak
                                 proj.ProjImmuneType, 
                                 proj.ImmunityCD,
                                 proj.Penetrate,
-                                proj.Scale != 100 ? proj.Scale / 100f : 1f));
+                                proj.Scale != 100 ? proj.Scale / 100f : 1f,
+                                proj.ArmorPen > -1 ? proj.ArmorPen : -1));
                         }
                     });
                 }

@@ -40,7 +40,7 @@ namespace AFargoTweak
         {
             On_Player.UpdateManaRegen += On_Player_UpdateManaRegen;
             On_Player.NebulaLevelup += BalancedComputationOrb.On_Player_NebulaLevelup;
-
+            //On_Player.AddBuff += BalancedComputationOrb.On_Player_AddBuff;
             //Type DOE = Type.GetType("Terraria.ModLoader.Config.UI.DefinitionOptionElement");
             //Type entitydefinition = typeof(ProjectileDefinition);
             //Type constructedType = DOE.MakeGenericType(entitydefinition);
@@ -127,6 +127,8 @@ namespace AFargoTweak
 
             base.Load();
         }
+
+
         public static void On_Player_UpdateManaRegen(On_Player.orig_UpdateManaRegen orig, Player self)
         {
             float leftManaRegenDelay = 0f;
@@ -143,7 +145,8 @@ namespace AFargoTweak
         {
             On_Player.UpdateManaRegen -= On_Player_UpdateManaRegen;
             On_Player.NebulaLevelup -= BalancedComputationOrb.On_Player_NebulaLevelup;
-            IL.FargowiltasSouls.Content.Bosses.VanillaEternity.Plantera.SafePreAI -= BalancedPlantera.PatchAI;
+            //On_Player.AddBuff -= BalancedComputationOrb.On_Player_AddBuff;
+            //IL.FargowiltasSouls.Content.Bosses.VanillaEternity.Plantera.SafePreAI -= BalancedPlantera.PatchAI;
             base.Unload();
         }
     }

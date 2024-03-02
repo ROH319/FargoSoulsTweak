@@ -60,9 +60,10 @@ namespace AFargoTweak.Configs
                     new ProjOverrider() { proj = new ProjectileDefinition("FargowiltasSouls", "PlasmaArrow"), Remarks = "纳米核心(远程)",Enabled = true,OnSpawnDamageMult = 109},
                     new ProjOverrider() { proj = new ProjectileDefinition("FargowiltasSouls","PlasmaDeathRay"), Remarks = "纳米核心(魔法)",Enabled = true,OnSpawnDamageMult = 120},
                     new ProjOverrider() { proj = new ProjectileDefinition("FargowiltasSouls","PrimeDeathray"), Remarks = "衍射暗星炮", Enabled = true,ProjImmuneType = AFTUtils.NPCImmunityType.IDStatic, ImmunityCD = 12},
-                    new ProjOverrider() { proj = new ProjectileDefinition("FargowiltasSouls","GolemHeadProj"), Remarks = "山崩", Enabled = true,Scale = 150},
+                    new ProjOverrider() { proj = new ProjectileDefinition("FargowiltasSouls","GolemHeadProj"), Remarks = "山崩", Enabled = true,Scale = 200},
                     new ProjOverrider() { proj = new ProjectileDefinition("FargowiltasSouls","RazorbladeTyphoonFriendly2"), Remarks = "怒海狂涛",Enabled = true,OnSpawnDamageMult = 180},
-                    new ProjOverrider() { proj = new ProjectileDefinition("FargowiltasSouls","DragonFireball"), Remarks = "龙之终焉",Enabled = true, OnSpawnDamageMult = 200}
+                    new ProjOverrider() { proj = new ProjectileDefinition("FargowiltasSouls","DragonFireball"), Remarks = "龙之终焉",Enabled = true, OnSpawnDamageMult = 200},
+                    new ProjOverrider() { proj = new ProjectileDefinition("FargowiltasSouls","DukeFishronMinion"),Remarks = "修复无穿甲bug",Enabled = true,ArmorPen = 400}
                     //new ProjOverrider() { proj = new ProjectileDefinition("FargowiltasSouls","MechElectricOrbHomingFriendly"),Enabled = true, Penetrate = 1}
                 }
             };
@@ -89,6 +90,7 @@ namespace AFargoTweak.Configs
             ImmunityCD = 10;
             Penetrate = -10;
             Scale = 100;
+            ArmorPen = -1;
             //var a = Main.projectile[0];
             //if (a != null)
             //{
@@ -109,7 +111,7 @@ namespace AFargoTweak.Configs
         public bool Enabled;
         public string Remarks;
         [DefaultValue(100)]
-        [Range(-10000,10000000)]
+        [Range(-10000,100000000)]
         public int OnSpawnDamageMult;
         [DefaultValue(AFTUtils.NPCImmunityType.None)]
         [DrawTicks]
@@ -117,18 +119,21 @@ namespace AFargoTweak.Configs
         [DefaultValue(10)]
         public int ImmunityCD;
         [DefaultValue(-10)]
-        [Range(-10,10000)]
+        [Range(-10,100000000)]
         public int Penetrate;
         [DefaultValue(100)]
-        [Range(0,100000)]
+        [Range(0,100000000)]
         public int Scale;
+        [DefaultValue(-1)]
+        [Range(-1,100000000)]
+        public int ArmorPen;
         //public EntityDefinition Source;
         public override bool Equals(object obj) => obj is not ProjOverrider other ? base.Equals(obj) :
             proj.Equals(other.proj) &&
             Enabled == other.Enabled && OnSpawnDamageMult == other.OnSpawnDamageMult
             && ProjImmuneType == other.ProjImmuneType && ImmunityCD == other.ImmunityCD
-            && Penetrate == other.Penetrate && Scale == other.Scale;
-        public override int GetHashCode() => new { Enabled, OnSpawnDamageMult, ProjImmuneType, ImmunityCD, Penetrate, Scale }.GetHashCode();
+            && Penetrate == other.Penetrate && Scale == other.Scale && ArmorPen == other.ArmorPen;
+        public override int GetHashCode() => new { Enabled, OnSpawnDamageMult, ProjImmuneType, ImmunityCD, Penetrate, Scale, ArmorPen }.GetHashCode();
     }
 
 }

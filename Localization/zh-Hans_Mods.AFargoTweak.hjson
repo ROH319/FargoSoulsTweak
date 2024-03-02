@@ -307,15 +307,21 @@ Configs: {
 
 		Scale: {
 			Label: 大小（单位：%）
-			Tooltip: ""
+			Tooltip: 也会影响碰撞箱大小
+		}
+
+		ArmorPen: {
+			Label: 护甲穿透
+			Tooltip: 该值小于0时不生效
 		}
 	}
 
 	NPCImmunityType: {
-		Tooltip: 全局弹幕无敌帧类型
+		Tooltip: 弹幕无敌帧类型
 		None.Label: 不变
 		Local.Label: 局部
 		IDStatic.Label: 静态
+		NPC.Label: NPC无敌帧
 	}
 
 	ForcesImmunity: {

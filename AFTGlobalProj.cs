@@ -23,19 +23,13 @@ namespace AFargoTweak
         public override void SetDefaults(Projectile entity)
         {
             base.SetDefaults(entity);
-
-        }
-        public override void ModifyHitNPC(Projectile projectile, NPC target, ref NPC.HitModifiers modifiers)
-        {
-            base.ModifyHitNPC(projectile, target, ref modifiers);
-            //if (FargoChangesLoader.ProjectileChanges != null)
-            //{
-            //    var list = FargoChangesLoader.ProjectileChanges.FindAll(change => change.Type == projectile.type);
-            //    for(int i = 0; i < list.Count; i++)
-            //    {
-            //        list[i].ApplyChanges_ModifyHit(projectile, ref modifiers);
-            //    }
-            //}
+            if (FargoChangesLoader.ProjectileChanges != null)
+            {
+                FargoChangesLoader.ProjectileChanges.FindAll(change => change.Type == entity.type).ForEach((change) =>
+                {
+                    change.ApplyChanges_SetDefault(entity);
+                });
+            }
         }
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
@@ -46,10 +40,6 @@ namespace AFargoTweak
                     change.ApplyChanges_OnSpawn(projectile);
                 });
             }
-            //if(projectile.type == ModContent.ProjectileType<DragonFireball>())
-            //{
-            //    projectile.damage = (int)(projectile.damage * AFargoTweak.ConfigInstance.DragonBreath2FireBallDmgMul / 100f);
-            //}
             if(source is EntitySource_ItemUse)
             {
                 EntitySource_ItemUse parentSource = source as EntitySource_ItemUse;
@@ -70,6 +60,29 @@ namespace AFargoTweak
             base.OnSpawn(projectile, source);
         }
 
+        public override void ModifyHitNPC(Projectile projectile, NPC target, ref NPC.HitModifiers modifiers)
+        {
+            base.ModifyHitNPC(projectile, target, ref modifiers);
+            //if (FargoChangesLoader.ProjectileChanges != null)
+            //{
+            //    var list = FargoChangesLoader.ProjectileChanges.FindAll(change => change.Type == projectile.type);
+            //    for(int i = 0; i < list.Count; i++)
+            //    {
+            //        list[i].ApplyChanges_ModifyHit(projectile, ref modifiers);
+            //    }
+            //}
+        }
+        public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            base.OnHitNPC(projectile, target, hit, damageDone);
+            if (FargoChangesLoader.ProjectileChanges != null)
+            {
+                FargoChangesLoader.ProjectileChanges.FindAll(change => change.Type == projectile.type).ForEach((change) =>
+                {
+                    change.ApplyChanges_OnHit(projectile, target, hit, damageDone);
+                });
+            }
+        }
         public override void PostDraw(Projectile projectile, Color lightColor)
         {
             PreferenceConfig instance = PreferenceConfig.Instance;

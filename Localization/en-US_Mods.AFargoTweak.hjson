@@ -309,6 +309,11 @@ Configs: {
 			Label: Scale
 			Tooltip: ""
 		}
+
+		ArmorPen: {
+			Label: Armor Pen
+			Tooltip: ""
+		}
 	}
 
 	NPCImmunityType: {
@@ -316,6 +321,7 @@ Configs: {
 		None.Label: None
 		Local.Label: Local
 		IDStatic.Label: I D Static
+		NPC.Label: N P C
 	}
 
 	ForcesImmunity: {

@@ -78,11 +78,21 @@ namespace AFargoTweak.Content.ItemChanges.Accessories
         {
             if (self.GetModPlayer<PatreonPlayer>().CompOrb
                 && self.HeldItem.DamageType != DamageClass.Magic && self.HeldItem.DamageType != DamageClass.Summon
-                && type == 176)
+                && (type >= 176 && type <= 178))
             {
                 return;
             }
             orig(self, type);
+        }
+
+        public static void On_Player_AddBuff(On_Player.orig_AddBuff orig, Player self, int type, int timeToAdd, bool quiet, bool foodHack)
+        {
+            //if(self.GetModPlayer<PatreonPlayer>().CompOrb && self.HeldItem.DamageType != DamageClass.Magic && self.HeldItem.DamageType != DamageClass.Summon
+            //     && (type >= 176 || type <= 178))
+            //{
+            //    return;
+            //}
+            orig(self, type,timeToAdd,quiet,foodHack);
         }
     }
 }

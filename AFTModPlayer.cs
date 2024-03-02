@@ -51,13 +51,7 @@ namespace AFargoTweak
         }
         public override void PostUpdateBuffs()
         {
-            for(int i = 0; i < Player.buffType.Length; i++)
-            {
-                if (Player.buffType[i] >= 176 && Player.buffType[i] <= 178)
-                {
-                    Player.DelBuff(i);
-                }
-            }
+            
             base.PostUpdateBuffs();
         }
         public override void PostUpdate()
@@ -72,6 +66,17 @@ namespace AFargoTweak
                 }
             }
             base.PostUpdate();
+        }
+        public override void PostUpdateEquips()
+        {
+            base.PostUpdateEquips();
+            for (int i = 0; i < Player.buffType.Length; i++)
+            {
+                if (Player.buffType[i] >= 176 && Player.buffType[i] <= 178 && Player.GetModPlayer<PatreonPlayer>().CompOrb && Player.HeldItem.DamageType != DamageClass.Magic && Player.HeldItem.DamageType != DamageClass.Summon)
+                {
+                    Player.DelBuff(i);
+                }
+            }
         }
         public override void UpdateEquips()
         {
@@ -88,20 +93,21 @@ namespace AFargoTweak
             {
                 Player.maxTurrets += AFargoTweak.ConfigInstance.SummonSoulExtraTurrets;
             }
-            
-            
             base.UpdateEquips();
         }
         public override void OnEnterWorld()
         {
-            for(int i = 0; i < 50; i++)
+            FargoChangesLoader.Item_LoadChange();
+            for (int i = 0; i < 50; i++)
             {
                 Item item = Player.inventory[i];
                 if (item.stack == 1 && FargoChangesLoader.ItemChanges.ContainsKey(item.type))
                 {
+                    //FargoChangesLoader.ItemChanges[item.type].ApplyChanges_SetDefault(item);
                     var prefix = item.prefix;
                     item.SetDefaults(Player.inventory[i].type);
-                    item.prefix = prefix;
+                    item.Prefix(prefix);
+                    //item.prefix = prefix;
                 }
                 //Player.inventory[i].CloneDefaults(Player.inventory[i].type);
             }
