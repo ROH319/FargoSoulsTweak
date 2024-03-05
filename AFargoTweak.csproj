@@ -15,10 +15,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Fargowiltas">
-      <HintPath>..\..\Lib\Fargowiltas.dll</HintPath>
+      <HintPath>lib\Fargowiltas.dll</HintPath>
     </Reference>
     <Reference Include="FargowiltasSouls">
-      <HintPath>..\FargowiltasSouls\bin\Debug\net6.0\FargowiltasSouls.dll</HintPath>
+      <HintPath>lib\FargowiltasSouls.dll</HintPath>
     </Reference>
     <Reference Include="MMHOOK_FargowiltasSouls">
       <HintPath>lib\MMHOOK_FargowiltasSouls.dll</HintPath>
