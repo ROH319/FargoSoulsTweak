@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace AFargoTweak
 {
-    public class AFTModPlayer : ModPlayer
+    public class AFTPlayer : ModPlayer
     {
         public List<Item> ExtraWizardedItem = new();
         public override void PreUpdate()

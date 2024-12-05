@@ -24,7 +24,7 @@ namespace AFargoTweak.Content.ItemChanges.Accessories
         {
             bool returnvalue = base.PreDrawInInventory(item, spriteBatch, position, frame, drawColor, itemColor, origin, scale);
             Player player = Main.LocalPlayer;
-            AFTModPlayer aftplr = player.AFT();
+            AFTPlayer aftplr = player.AFT();
             if (item.ModItem is BaseEnchant && aftplr.ExtraWizardedItem.Contains(item))
             {
                 for (int j = 0; j < 12; j++)
@@ -45,7 +45,7 @@ namespace AFargoTweak.Content.ItemChanges.Accessories
         public static bool ForceHook(ForceEffDele orig, FargoSoulsPlayer farplr, ModItem modItem)
         {
             bool returnvalue = orig(farplr, modItem);
-            AFTModPlayer aftplr = farplr.Player.AFT();
+            AFTPlayer aftplr = farplr.Player.AFT();
             var wizarditem = aftplr.ExtraWizardedItem;
             bool CheckWizard(int type)
             {

@@ -31,8 +31,8 @@ namespace AFargoTweak
             return projectile.GetGlobalProjectile<FargoGlobalProjectile>();
         }
 
-        public static AFTModPlayer AFT(this Player player)
-            => player.GetModPlayer<AFTModPlayer>();
+        public static AFTPlayer AFT(this Player player)
+            => player.GetModPlayer<AFTPlayer>();
 
         public enum NPCImmunityType
         {
